@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 26 10:25:15 2022
+# Make data base, printed on Tue Jul 26 16:25:04 2022
 
 # Variables
 
@@ -42,7 +42,6 @@ MAKE_COMMAND := make
 QT_ACCESSIBILITY = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
- 
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
@@ -284,6 +283,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
+ 
 # . (device 66309, inode 12601416): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
@@ -341,8 +341,7 @@ sim: app
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-07-26 10:11:26.7151333
+#  Last modified 2022-07-26 11:16:14.965019137
 #  File has been updated.
 #  Successfully updated.
 
@@ -352,6 +351,7 @@ clean:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 31):
 	@make --no-print-directory -C $(DIRS_SW)/$(APP) clean
+	@make --no-print-directory -C $(DIRS_HW) clean
 
 # Not a target:
 .DEFAULT:
@@ -396,6 +396,6 @@ all: app
 # strcache performance: lookups = 34 / hit rate = 44%
 # hash-table stats:
 # Load=19/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Tue Jul 26 10:25:15 2022
+# Finished Make data base on Tue Jul 26 16:25:04 2022
 
  
