@@ -8,6 +8,8 @@
 
 int main(void)
 {
+    uint32_t pattern[2] = {0x55555555, 0x11111111}; 
+
     while(1)
     {                                        
         tty_write(" _____     _ _        _____ _             _____ \n");
@@ -19,9 +21,9 @@ int main(void)
         
         for(uint8_t i = 0; i < 8; i++)
         {
-            ledbar_write(0x55555555);
+            ledbar_write(pattern[i%2]);
             for(uint8_t j = 0; j < 12; j++) __asm__ volatile("nop");
-            ledbar_write(0x55555555 << 1);
+            ledbar_write(pattern[(i+1)%2]);
             for(uint8_t j = 0; j < 12; j++) __asm__ volatile("nop");
         }
 
