@@ -37,7 +37,7 @@
 
    assign is_branch = op_ge_i | op_eq_i | op_ne_i | op_lt_i | op_geu_i | op_ltu_i;
                      
-   assign dout_o =   op_rs2_imm_i   ? op_rs2_imm_i :
+   assign dout_o =   op_rs2_imm_i   ? rsb_imm_i :
                      is_branch      ? {32{br_result}} :
                      op_sra_i       ? rsa_i >>> shift_amt :
                      op_srl_i       ? rsa_i >> shift_amt :

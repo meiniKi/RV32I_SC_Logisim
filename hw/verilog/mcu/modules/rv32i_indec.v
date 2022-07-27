@@ -57,16 +57,16 @@ module rv32i_indec(
    assign auipc_o = auipc;
    assign ebc_o   = ebc;
 
-   assign arr     = (opc == 6'h33) ? 1'b1 : 1'b0;
-   assign ari     = (opc == 6'h13) ? 1'b1 : 1'b0;
-   assign ld      = (opc == 6'h03) ? 1'b1 : 1'b0;
-   assign st      = (opc == 6'h23) ? 1'b1 : 1'b0;
-   assign br      = (opc == 6'h63) ? 1'b1 : 1'b0;
-   assign jal     = (opc == 6'h6f) ? 1'b1 : 1'b0;
-   assign jalr    = (opc == 6'h67) ? 1'b1 : 1'b0;
-   assign lui     = (opc == 6'h37) ? 1'b1 : 1'b0;
-   assign auipc   = (opc == 6'h17) ? 1'b1 : 1'b0;
-   assign ebc     = (opc == 6'h73) ? 1'b1 : 1'b0;
+   assign arr     = (opc == 7'h33);
+   assign ari     = (opc == 7'h13);
+   assign ld      = (opc == 7'h03);
+   assign st      = (opc == 7'h23);
+   assign br      = (opc == 7'h63);
+   assign jal     = (opc == 7'h6f);
+   assign jalr    = (opc == 7'h67);
+   assign lui     = (opc == 7'h37);
+   assign auipc   = (opc == 7'h17);
+   assign ebc     = (opc == 7'h73);
 
    assign imm_o = jal         ? j_imm :
                   lui | auipc ? u_imm :

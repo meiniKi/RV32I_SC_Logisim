@@ -9,7 +9,7 @@ module mcu  #( parameter ROM_FILE = "",
                );
 
    wire clk;
-   wire rst;
+   wire rst_n;
    wire locked;
 
    wire [31:0] instr;
@@ -43,7 +43,7 @@ module mcu  #( parameter ROM_FILE = "",
    assign ram_addr_word    = (ram_addr_byte >> 2);
 
    rv32i #( .STARTUP_MEM_ADDR (32'h00000000) ) i_rv32_i (.clk_i         ( clk ),
-                                                         .rst_in        ( rst ),
+                                                         .rst_in        ( rst_n ),
                                                          .instr_addr_o  ( instr_addr_byte ),
                                                          .instr_i       ( instr ),
                                                          .mem_addr_o    ( mem_addr_byte ),
@@ -95,7 +95,7 @@ module mcu  #( parameter ROM_FILE = "",
 
    ram #(   .ADDR_WIDTH (12),
             .INIT_FILE  (RAM_FILE)) i_ram (  .clk_i   ( clk ),
-                                             .addr_i  ( ram_addr_word ), 
+                                             .addr_i  ( ram_addr_word[11:0] ), 
                                              .din_i   ( ram_data_from_core ),
                                              .we_i    ( ram_we ), 
                                              .be0_i   ( ram_be[0] ),
@@ -104,6 +104,19 @@ module mcu  #( parameter ROM_FILE = "",
                                              .be3_i   ( ram_be[3] ),
                                              .dout_o  ( ram_data_to_core )
                                           );
+
+   d_ledbar i_d_ledbar (   .clk_i   ( clk ),
+                           .rst_in  ( rst_n ),
+                           .we_i    ( lb_we ),
+                           .be0_i   ( lb_be[0] ),
+                           .be1_i   ( lb_be[1] ),
+                           .be2_i   ( lb_be[2] ),
+                           .be3_i   ( lb_be[3] ),
+                           .din_i   ( lb_data_from_core ),
+                           .dout_o  ( lb_data_to_core ),
+                           .drd_o   ( led_o )
+                        );
+                                          
                                     
 `ifdef SYNTHESIZE
 

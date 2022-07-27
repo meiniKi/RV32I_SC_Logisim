@@ -43,4 +43,6 @@ module rv32i_aludec(
    assign op_bltu_o  = br_i & (funct3 == 3'b110);
    assign op_bgeu_o  = br_i & (funct3 == 3'b111);
 
+   assign op_rs2_imm_o = lui_auipc_i;
+
 endmodule

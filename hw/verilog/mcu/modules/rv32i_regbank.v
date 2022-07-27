@@ -3,9 +3,9 @@
 module rv32i_regbank (
    input  wire          rst_in,
    input  wire          clk_i,
-   input  wire [15:0]   rs1_16_i,
-   input  wire [15:0]   rs2_16_i,
-   input  wire [15:0]   rd_16_i,
+   input  wire [3:0]    rs1_16_i,
+   input  wire [3:0]    rs2_16_i,
+   input  wire [3:0]    rd_16_i,
    input  wire          we_i,
    input  wire [31:0]   din_i,
    output wire [31:0]   rs1d_o,

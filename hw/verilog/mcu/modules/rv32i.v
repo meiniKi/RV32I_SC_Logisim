@@ -7,7 +7,7 @@ module rv32i #( parameter STARTUP_MEM_ADDR = 32'h00000000 ) (
    output wire [31:0]   mem_addr_o,
    input  wire [31:0]   mem_din_i,
    output wire [31:0]   mem_dout_o,
-   input  wire          mem_we_o,
+   output wire          mem_we_o,
    output wire [3:0]    mem_be_o
 );
 
@@ -125,7 +125,7 @@ module rv32i #( parameter STARTUP_MEM_ADDR = 32'h00000000 ) (
                                  .jal_o      ( jal ),
                                  .jalr_o     ( jalr ),
                                  .lui_o      ( lui ),
-                                 .auipc_o    ( auipc ),
+                                 .auipc_o    ( auipc )
                                  //.ebc_o      (  )
                               );
 

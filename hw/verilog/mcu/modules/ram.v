@@ -26,7 +26,7 @@ assign dout_o = mem[addr_i];
 
 initial begin
     if (INIT_FILE != "")
-        $readmemh(INIT_FILE, mem);    
+        $readmemh(INIT_FILE, mem);
 end
 
 always @(posedge clk_i) begin
