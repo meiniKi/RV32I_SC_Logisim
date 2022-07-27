@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 26 16:25:04 2022
+# Make data base, printed on Wed Jul 27 14:06:03 2022
 
 # Variables
 
@@ -23,13 +23,11 @@ XILINX_VIVADO = /tools/Xilinx/Vivado/2022.1
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# environment
 LC_NAME = de_AT.UTF-8
 # environment
 LC_NUMERIC = de_AT.UTF-8
 # environment
-VSCODE_CWD = /home/user
+VSCODE_CWD = /home/user/Desktop
 # environment
 FZF_CTRL_T_OPTS = --height 40% --layout reverse --info inline --border     --preview 'file {}' --preview-window up,1,border-horizontal
 # makefile (from 'Makefile', line 4)
@@ -69,11 +67,13 @@ VSCODE_CODE_CACHE_PATH = /home/user/.config/Code/CachedData/3b889b090b5ad5793f52
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.ECZLP1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.3RACQ1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.132
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -103,15 +103,13 @@ SNAP_REEXEC =
 # environment
 ZSH = /home/user/.oh-my-zsh
 # environment
-VSCODE_PID = 4726
+VSCODE_PID = 4968
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
-# environment
-SESSION_MANAGER = local/user-tpad:@/tmp/.ICE-unix/1277,unix/user-tpad:/tmp/.ICE-unix/1277
+SESSION_MANAGER = local/user-tpad:@/tmp/.ICE-unix/1266,unix/user-tpad:/tmp/.ICE-unix/1266
 # automatic
 *F = $(notdir $*)
 # environment
@@ -133,9 +131,9 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+SHLVL = 1
 # environment
-SHLVL = 0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/8a19fb73_a29a_405b_9d6e_a36d0da8a2d1
 # environment
 MAKELEVEL := 0
 # default
@@ -157,8 +155,6 @@ LC_TIME = de_AT.UTF-8
 # environment
 SNAP = /snap/code/102
 # environment
-INVOCATION_ID = c3161bbf104d45beac18df968d7cbb26
-# environment
 SNAP_REVISION = 102
 # environment
 SNAP_REAL_HOME = /home/user
@@ -175,7 +171,7 @@ DIRS_SW = sw/apps
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 +F = $(notdir $+)
 # environment
@@ -191,13 +187,11 @@ XILINX_HLS = /tools/Xilinx/Vitis_HLS/2022.1
 # environment
 LOGNAME = user
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
-# environment
 SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1295
+SYSTEMD_EXEC_PID = 1284
 # environment
 DISPLAY = :0
 # environment
@@ -213,23 +207,17 @@ SNAP_DATA = /var/snap/code/102
 # environment
 SNAP_CONTEXT = ZFNvtcditzZ1egi_vwIUIJDIlDn_QGHAmDn7mylBcEGvM3Wbf2Xw
 # environment
-MANAGERPID = 1192
-# environment
 LC_MEASUREMENT = de_AT.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 4678
-# environment
 PAGER = less
-# environment
-_ = /snap/code/102/usr/share/code/code
 # environment
 LC_PAPER = de_AT.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-GDK_PIXBUF_MODULE_FILE = /home/user/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+COLORTERM = truecolor
 # environment
-JOURNAL_STREAM = 8:30587
+GDK_PIXBUF_MODULE_FILE = /home/user/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -243,9 +231,11 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-16068fa4-1.69.2-main.sock
 # environment
-XILINX_VITIS = /tools/Xilinx/Vitis/2022.1
+TERM = xterm-256color
 # environment
 SNAP_NAME = code
+# environment
+XILINX_VITIS = /tools/Xilinx/Vitis/2022.1
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/102/usr/share/glib-2.0/schemas
 # default
@@ -261,6 +251,8 @@ VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
+VTE_VERSION = 6800
+# environment
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
@@ -275,7 +267,7 @@ LC_IDENTIFICATION = de_AT.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=132/1024=13%, Rehash=0, Collisions=4/170=2%
+# Load=128/1024=12%, Rehash=0, Collisions=13/166=8%
 
 # Pattern-specific Variable Values
 
@@ -283,12 +275,12 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
- 
 # . (device 66309, inode 12601416): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
+ 
 
 # No implicit rules.
 
@@ -396,6 +388,6 @@ all: app
 # strcache performance: lookups = 34 / hit rate = 44%
 # hash-table stats:
 # Load=19/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Tue Jul 26 16:25:04 2022
+# Finished Make data base on Wed Jul 27 14:06:03 2022
 
  

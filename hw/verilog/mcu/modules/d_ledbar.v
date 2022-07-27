@@ -1,9 +1,3 @@
-/******************************************************************************
- ** Logisim goes FPGA automatic generated Verilog code                       **
- **                                                                          **
- ** Component : d_ledbar                                                     **
- **                                                                          **
- ******************************************************************************/
 
 module d_ledbar (
    input  wire          clk_i,
