@@ -21,7 +21,7 @@ module rv32i_regbank (
 
    always @(posedge clk_i or negedge rst_in) begin
       if (~rst_in) begin
-         for (integer i=0; i<16; i=i+1) mem[i] <= 32'b00; // '{default:2'b00}; is sv
+         for (integer i=0; i<16; i=i+1) mem[i] <= 32'b0; // '{default:2'b00}; is sv
       end else begin
          mem[rd_16_i] <= we_i ? din_i : mem[rd_16_i];
       end

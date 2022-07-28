@@ -33,8 +33,9 @@ module rv32i_lsu (
    assign we_mem_o      = st_i;
    assign low_addr      = mem_addr_i[1:0];
 
-   assign shift_amt     =  (low_addr == 2'b00) ?   6'h0 :
-                           (low_addr == 2'b01) ?   6'h10 :
+   assign shift_amt     =  (low_addr == 2'b00) ?   6'h00 :
+                           (low_addr == 2'b01) ?   6'h08 :
+                           (low_addr == 2'b10) ?   6'h10 :
                                                    6'h18;
 
    assign wmem_o        = (wdat_i << shift_amt);
@@ -50,14 +51,14 @@ module rv32i_lsu (
                      is_h ?   rhalfw_extended :
                               rmem_i;
 
-   assign be_o =  is_b ? ('h1 << low_addr) :
-                  is_h ? ('h3 << low_addr) :
+   assign be_o =  is_b ? (4'h1 << low_addr) :
+                  is_h ? (4'h3 << low_addr) :
                          'hf;
 
 `ifndef SYNTHESIS
    always @(*) begin
-      assert (!( is_h && (low_addr == 2'b11) ));
-      assert (!( is_w && (low_addr != 2'b00) ));
+      #0 assert (!( is_h && (low_addr == 2'b11) ));
+      #0 assert (!( is_w && (low_addr != 2'b00) ));
    end
 `endif
 

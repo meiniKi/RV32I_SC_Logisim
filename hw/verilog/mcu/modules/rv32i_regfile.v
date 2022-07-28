@@ -43,7 +43,7 @@ module rv32i_regfile (
                                           .din_i      ( din_i ),
                                           .rs1d_o     ( rs1_d[1] ),
                                           .rs2d_o     ( rs2_d[1] ),
-                                          .is_upper_i ( 1'b0 )
+                                          .is_upper_i ( 1'b1 )
                                        );
 
 endmodule

@@ -14,7 +14,7 @@ module ram #( parameter DATA_WIDTH = 32,
     output wire [DATA_WIDTH-1:0]    dout_o
 );
 
-reg  [DATA_WIDTH-1:0] mem [0:(2**ADDR_WIDTH-1)>>2];
+reg  [DATA_WIDTH-1:0] mem [0:(2**ADDR_WIDTH-1)];
 wire [DATA_WIDTH-1:0] mask; 
 
 // Note: this needs to be adopted when DATA_WIDTH!=32 bit

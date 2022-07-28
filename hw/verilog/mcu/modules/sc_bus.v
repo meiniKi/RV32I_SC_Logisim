@@ -31,7 +31,7 @@ module sc_bus (
    localparam MEM_UPPER = 32'hFF000000;
    localparam LB_LOWER  = 32'hFF000000;
    localparam LB_UPPER  = 32'hFF000004;
-   localparam TTY_LOWER = 32'h00000004;
+   localparam TTY_LOWER = 32'hFF000004;
    localparam TTY_UPPER = 32'hFF000008;
 
    wire is_mem_addr;
@@ -53,9 +53,9 @@ module sc_bus (
 
    assign mem_addr_o = addr_i;
 
-   assign is_mem_addr   = (~(addr_i < MEM_LOWER)) & (addr_i < MEM_UPPER);
-   assign is_lb_addr    = (~(addr_i < LB_LOWER))  & (addr_i < LB_UPPER);
-   assign is_tty_addr   = (~(addr_i < TTY_LOWER)) & (addr_i < TTY_UPPER);
+   assign is_mem_addr   = (~(addr_i < MEM_LOWER)) && (addr_i < MEM_UPPER);
+   assign is_lb_addr    = (~(addr_i < LB_LOWER))  && (addr_i < LB_UPPER);
+   assign is_tty_addr   = (~(addr_i < TTY_LOWER)) && (addr_i < TTY_UPPER);
    
    assign mem_we_o   = we_i & is_mem_addr;
    assign lb_we_o    = we_i & is_lb_addr;

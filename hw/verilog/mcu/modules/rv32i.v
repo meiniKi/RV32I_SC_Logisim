@@ -143,7 +143,7 @@ module rv32i #( parameter STARTUP_MEM_ADDR = 32'h00000000 ) (
    rv32i_alu i_rv32i_alu ( .rsa_i         ( alu_ra ),
                            .rsb_imm_i     ( alu_rb ),
                            .op_add_i      ( alu_add ),
-                           .op_and_i      ( op_add ),
+                           .op_and_i      ( op_and ),
                            .op_eq_i       ( op_beq ),
                            .op_ge_i       ( op_bge ),
                            .op_geu_i      ( op_bgeu ),

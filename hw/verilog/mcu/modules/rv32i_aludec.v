@@ -25,16 +25,18 @@ module rv32i_aludec(
    output wire       op_rs2_imm_o
 );
 
-   assign op_add_o   = (ari_i | ar_i) & (ar_i | ((~funct7[5]) & (funct3 == 3'b0)));
-   assign op_sub_o   = (ari_i | ar_i) & (~ar_i) & funct7[5] & (funct3 == 3'b0);
-   assign op_sll_o   = (ari_i | ar_i) & (funct3 == 3'b1);
-   assign op_slt_o   = (ari_i | ar_i) & (funct3 == 3'b10);
-   assign op_sltu_o  = (ari_i | ar_i) & (funct3 == 3'b11);
-   assign op_xor_o   = (ari_i | ar_i) & (funct3 == 3'b100);
-   assign op_srl_o   = (ari_i | ar_i) & (~funct7[5]) & (funct3 == 3'b101);
-   assign op_sra_o   = (ari_i | ar_i) & funct7[5] & (funct3 == 3'b101);
-   assign op_or_o    = (ari_i | ar_i) & (funct3 == 3'b110);
-   assign op_and_o   = (ari_i | ar_i) & (funct3 == 3'b111);
+   wire ar_or_ari = ari_i | ar_i;
+
+   assign op_add_o   = (funct3 == 3'b0) & ((~funct7[5]) | ari_i);
+   assign op_sub_o   = ar_or_ari & (~ari_i) & funct7[5] & (funct3 == 3'b0);
+   assign op_sll_o   = ar_or_ari & (funct3 == 3'b1);
+   assign op_slt_o   = ar_or_ari & (funct3 == 3'b10);
+   assign op_sltu_o  = ar_or_ari & (funct3 == 3'b11);
+   assign op_xor_o   = ar_or_ari & (funct3 == 3'b100);
+   assign op_srl_o   = ar_or_ari & (~funct7[5]) & (funct3 == 3'b101);
+   assign op_sra_o   = ar_or_ari & funct7[5] & (funct3 == 3'b101);
+   assign op_or_o    = ar_or_ari & (funct3 == 3'b110);
+   assign op_and_o   = ar_or_ari & (funct3 == 3'b111);
 
    assign op_beq_o   = br_i & (funct3 == 3'b000);
    assign op_bne_o   = br_i & (funct3 == 3'b001);

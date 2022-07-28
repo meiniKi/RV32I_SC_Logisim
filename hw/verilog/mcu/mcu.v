@@ -81,9 +81,9 @@ module mcu  #( parameter ROM_FILE = "",
                   );
 
 
-   ram #(   .ADDR_WIDTH (12),
+   ram #(   .ADDR_WIDTH (10),
             .INIT_FILE  (ROM_FILE)) i_rom (  .clk_i   ( clk ),
-                                             .addr_i  ( instr_addr_word[11:0] ), 
+                                             .addr_i  ( instr_addr_word[9:0] ), 
                                              .din_i   ( 32'b0 ),
                                              .we_i    ( 1'b0 ), 
                                              .be0_i   ( 1'b0 ),
@@ -93,9 +93,9 @@ module mcu  #( parameter ROM_FILE = "",
                                              .dout_o  ( instr )
                                           );
 
-   ram #(   .ADDR_WIDTH (12),
+   ram #(   .ADDR_WIDTH (10),
             .INIT_FILE  (RAM_FILE)) i_ram (  .clk_i   ( clk ),
-                                             .addr_i  ( ram_addr_word[11:0] ), 
+                                             .addr_i  ( ram_addr_word[9:0] ), 
                                              .din_i   ( ram_data_from_core ),
                                              .we_i    ( ram_we ), 
                                              .be0_i   ( ram_be[0] ),
