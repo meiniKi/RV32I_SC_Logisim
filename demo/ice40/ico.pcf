@@ -1,0 +1,8 @@
+
+
+set_io --warn-no-port clk_i R9
+set_io --warn-no-port rst_in  K11
+
+set_io --warn-no-port led_o[0] C8
+set_io --warn-no-port led_o[1] F7
+set_io --warn-no-port led_o[2] K9

@@ -18,7 +18,6 @@ SECTIONS
         KEEP(*(.startup_code))
 
         *(.text*)
-        *(.rodata*)
         __etext = .;
     } > rom
 
@@ -27,13 +26,14 @@ SECTIONS
         *(.bss*)
         *(COMMON)
         __ebss = .;
-    } > rom
+    } > ram
 
     .data :
     {
+        *(.rodata*)
         *(.data*)
         __edata = .;
-    } > rom
+    } > ram
 
     .stack (NOLOAD) :
     {
@@ -41,6 +41,6 @@ SECTIONS
         . = . + __max_stack_size;
         . = ALIGN(4);
         __estack = .;
-    } > rom
+    } > ram
 
 }

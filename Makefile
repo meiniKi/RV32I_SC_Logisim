@@ -1,9 +1,16 @@
 
-.PHONY: all app
+.PHONY: all app prog_ice40 ice40
 
 APP = 00_demo
 
-DIRS = sw/apps
+DIRS_SW = sw/apps
+DIRS_HW = hw/verilog
+DIRS_DEMO_ICE40 = demo/ice40
+
+export APP
+export DIRS_SW
+export DIRS_HW
+export DIRS_DEMO_ICE40
 
 all: app
 	
@@ -12,7 +19,32 @@ app:
 	@echo "************************************"
 	@echo "******      BUILDING APP     *******"
 	@echo "************************************"
-	@make --no-print-directory -C $(DIRS)/$(APP)
+	@make --no-print-directory -C $(DIRS_SW)/$(APP)
 	
+sim: app
+	@echo ""
+	@echo "************************************"
+	@echo "******       SIMULATING      *******"
+	@echo "************************************"
+	@make --no-print-directory -C $(DIRS_HW)
+
+
+ice40: app
+	@echo ""
+	@echo "************************************"
+	@echo "******  SYNTH/IMPL iCE40     *******"
+	@echo "************************************"
+	@make --no-print-directory -C $(DIRS_HW) ice40
+
+
+prog_ice40:
+	@echo ""
+	@echo "************************************"
+	@echo "******  PROGRAMMING iCE40    *******"
+	@echo "************************************"
+	@make --no-print-directory -C $(DIRS_HW) prog_ice40
+
+
 clean:
-	@make --no-print-directory -C $(DIRS)/$(APP) clean
+	@make --no-print-directory -C $(DIRS_SW)/$(APP) clean
+	@make --no-print-directory -C $(DIRS_HW) clean
