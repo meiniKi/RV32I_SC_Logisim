@@ -1,12 +1,11 @@
 
-module mcu  #( parameter ROM_FILE = "",
-               parameter RAM_FILE = "") (
-                  input  wire          clk_i,
-                  input  wire          rst_in,
-                  output wire [31:0]   led_o,
-                  output wire [6:0]    tty_o,
-                  output wire          tty_we_o
-               );
+module mcu (
+   input  wire          clk_i,
+   input  wire          rst_in,
+   output wire [31:0]   led_o,
+   output wire [6:0]    tty_o,
+   output wire          tty_we_o
+);
 
    wire clk;
    wire rst_n;
@@ -82,7 +81,11 @@ module mcu  #( parameter ROM_FILE = "",
 
 
    ram #(   .ADDR_WIDTH (10),
-            .INIT_FILE  (ROM_FILE)) i_rom (  .clk_i   ( clk ),
+            .INIT_FILE  (`ROM_FILE),
+            .INIT_BYTE0 (`ROM_BYTE0),
+            .INIT_BYTE1 (`ROM_BYTE1),
+            .INIT_BYTE2 (`ROM_BYTE2),
+            .INIT_BYTE3 (`ROM_BYTE3)) i_rom (.clk_i   ( clk ),
                                              .addr_i  ( instr_addr_word[9:0] ), 
                                              .din_i   ( 32'b0 ),
                                              .we_i    ( 1'b0 ), 
@@ -94,7 +97,11 @@ module mcu  #( parameter ROM_FILE = "",
                                           );
 
    ram #(   .ADDR_WIDTH (10),
-            .INIT_FILE  (RAM_FILE)) i_ram (  .clk_i   ( clk ),
+            .INIT_FILE  (`RAM_FILE),
+            .INIT_BYTE0 (`RAM_BYTE0),
+            .INIT_BYTE1 (`RAM_BYTE1),
+            .INIT_BYTE2 (`RAM_BYTE2),
+            .INIT_BYTE3 (`RAM_BYTE3)) i_ram ( .clk_i   ( clk ),
                                              .addr_i  ( ram_addr_word[9:0] ), 
                                              .din_i   ( ram_data_from_core ),
                                              .we_i    ( ram_we ), 
@@ -118,7 +125,14 @@ module mcu  #( parameter ROM_FILE = "",
                         );
                                           
                                     
-`ifdef SYNTHESIZE
+`ifdef SYNTH_ICE40
+
+   wire clk_16M;
+   reg [13:0] cnter;
+   reg [1:0] dly_rst;
+   reg clk_1k;
+
+   assign clk = clk_1k;
 
    SB_PLL40_PAD #(   .FEEDBACK_PATH ("SIMPLE"),
                      .DIVR          (4'b0100),	   // DIVR =  4
@@ -127,15 +141,37 @@ module mcu  #( parameter ROM_FILE = "",
                      .FILTER_RANGE  (3'b010)	      // FILTER_RANGE = 2
                   ) i_SB_PLL40_PAD (   
                      .PACKAGEPIN    (clk_i),
-                     .PLLOUTGLOBAL  (clk),
+                     .PLLOUTGLOBAL  (clk_16M),
                      .RESETB        (rst_in),
                      .BYPASS        (1'b0),
                      .LOCK          (locked)
                   );
 
-   assign rst_n = locked & rst_in;
-`else
+   always @(posedge clk_16M or negedge rst_in) begin
+      if (~rst_in) begin
+         dly_rst  <= 'b0;
+         cnter    <= 'b0;
+         clk_1k   <= 'b0;
+      end else begin
+         cnter <= cnter + 'b1;
 
+         if (cnter == 'd8000) begin
+            clk_1k <= 'b1;
+         end
+         if (cnter == 'd16000) begin
+            clk_1k <= 'b0;
+            cnter <= 'b0;
+            if (dly_rst != 2'b11) begin
+               dly_rst <= dly_rst + 'b1;
+            end
+         end
+
+      end
+   end
+
+   assign rst_n = locked & rst_in & (&dly_rst);
+
+`else
    assign rst_n   = rst_in;
    assign clk     = clk_i;
 `endif

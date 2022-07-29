@@ -14,8 +14,8 @@ module tb;
         $dumpvars(5, i_mcu);
 
         // Reset            
-            rst_in = 0;
-        #21 rst_in = 1;
+                rst_in = 0;
+        #101    rst_in = 1;
 
         #100000 $finish();
     end
@@ -25,12 +25,11 @@ module tb;
         #10 clk_i = 0;
     end
 
-    mcu #( .RAM_FILE(`RAM_FILE),
-           .ROM_FILE(`ROM_FILE)) i_mcu (.clk_i     ( clk_i ),
-                                        .rst_in    ( rst_in ),
-                                        .led_o     ( led_o ),
-                                        .tty_o     ( tty_o ),
-                                        .tty_we_o  ( tty_we_o )
-                                        );
+    mcu i_mcu ( .clk_i     ( clk_i ),
+                .rst_in    ( rst_in ),
+                .led_o     ( led_o ),
+                .tty_o     ( tty_o ),
+                .tty_we_o  ( tty_we_o )
+                );
 
 endmodule

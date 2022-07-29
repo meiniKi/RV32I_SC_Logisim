@@ -103,7 +103,7 @@ module rv32i #( parameter STARTUP_MEM_ADDR = 32'h00000000 ) (
    assign lsu_wdat = st ? rsb : imm;
 
    always @(posedge clk or negedge rst_n) begin
-      if (~rst_in) begin
+      if (~rst_n) begin
          pc <= STARTUP_MEM_ADDR;
       end else begin
          pc <= pc_next;
