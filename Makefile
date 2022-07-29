@@ -1,5 +1,5 @@
 
-.PHONY: all app
+.PHONY: all app prog_ice40 ice40
 
 APP = 00_demo
 
@@ -35,6 +35,15 @@ ice40: app
 	@echo "******  SYNTH/IMPL iCE40     *******"
 	@echo "************************************"
 	@make --no-print-directory -C $(DIRS_HW) ice40
+
+
+prog_ice40:
+	@echo ""
+	@echo "************************************"
+	@echo "******  PROGRAMMING iCE40    *******"
+	@echo "************************************"
+	@make --no-print-directory -C $(DIRS_HW) prog_ice40
+
 
 clean:
 	@make --no-print-directory -C $(DIRS_SW)/$(APP) clean

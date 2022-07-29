@@ -8,7 +8,8 @@ module ram #( parameter DATA_WIDTH = 32,
               parameter INIT_BYTE1 = "",
               parameter INIT_BYTE2 = "",
               parameter INIT_BYTE3 = "") (
-    input  wire                     clk_i,
+    input  wire                     wclk_i,
+    input  wire                     rclk_i,
     input  wire [ADDR_WIDTH-1:0]    addr_i, 
     input  wire [DATA_WIDTH-1:0]    din_i,
     input  wire                     we_i, 
@@ -24,7 +25,8 @@ module ram #( parameter DATA_WIDTH = 32,
 
     ram_byte #( .ADDR_WIDTH ( ADDR_WIDTH ),
                 .INIT_FILE  ( INIT_BYTE0 )) i_ram_byte0 (
-                                                        .clk_i  ( clk_i ),
+                                                        .wclk_i ( wclk_i ),
+                                                        .rclk_i ( rclk_i ),
                                                         .addr_i ( addr_i ), 
                                                         .din_i  ( din_i[7:0] ),
                                                         .we_i   ( we_i & be0_i ),
@@ -33,7 +35,8 @@ module ram #( parameter DATA_WIDTH = 32,
 
     ram_byte #( .ADDR_WIDTH ( ADDR_WIDTH ),
                 .INIT_FILE  ( INIT_BYTE1 )) i_ram_byte1 (
-                                                        .clk_i  ( clk_i ),
+                                                        .wclk_i ( wclk_i ),
+                                                        .rclk_i ( rclk_i ),
                                                         .addr_i ( addr_i ), 
                                                         .din_i  ( din_i[15:8] ),
                                                         .we_i   ( we_i & be1_i ),
@@ -42,7 +45,8 @@ module ram #( parameter DATA_WIDTH = 32,
 
     ram_byte #( .ADDR_WIDTH ( ADDR_WIDTH ),
                 .INIT_FILE  ( INIT_BYTE2 )) i_ram_byte2 (
-                                                        .clk_i  ( clk_i ),
+                                                        .wclk_i ( wclk_i ),
+                                                        .rclk_i ( rclk_i ),
                                                         .addr_i ( addr_i ), 
                                                         .din_i  ( din_i[23:16] ),
                                                         .we_i   ( we_i & be2_i ),
@@ -51,7 +55,8 @@ module ram #( parameter DATA_WIDTH = 32,
 
     ram_byte #( .ADDR_WIDTH ( ADDR_WIDTH ),
                 .INIT_FILE  ( INIT_BYTE3 )) i_ram_byte3 (
-                                                        .clk_i  ( clk_i ),
+                                                        .wclk_i ( wclk_i ),
+                                                        .rclk_i ( rclk_i ),
                                                         .addr_i ( addr_i ), 
                                                         .din_i  ( din_i[31:24] ),
                                                         .we_i   ( we_i & be3_i ),
@@ -78,11 +83,11 @@ module ram #( parameter DATA_WIDTH = 32,
     reg [DATA_WIDTH-1:0] dout;
     assign dout_o = dout;
 
-    always @(posedge clk_i) begin
+    always @(posedge rclk_i) begin
         dout <= mem[addr_i];
     end
 
-    always @(posedge clk_i) begin
+    always @(posedge wclk_i) begin
         if (we_i) begin
         mem[addr_i] <= (mem[addr_i] & ~mask) | (din_i & mask); 
         end

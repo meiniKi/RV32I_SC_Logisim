@@ -17,7 +17,7 @@ module tb;
                 rst_in = 0;
         #101    rst_in = 1;
 
-        #100000 $finish();
+        #100000000 $finish();
     end
 
     always begin : clock_gen

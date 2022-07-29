@@ -85,7 +85,8 @@ module mcu (
             .INIT_BYTE0 (`ROM_BYTE0),
             .INIT_BYTE1 (`ROM_BYTE1),
             .INIT_BYTE2 (`ROM_BYTE2),
-            .INIT_BYTE3 (`ROM_BYTE3)) i_rom (.clk_i   ( clk ),
+            .INIT_BYTE3 (`ROM_BYTE3)) i_rom (.rclk_i   ( clk_x2 ),
+                                             .wclk_i   ( clk ),
                                              .addr_i  ( instr_addr_word[9:0] ), 
                                              .din_i   ( 32'b0 ),
                                              .we_i    ( 1'b0 ), 
@@ -101,7 +102,8 @@ module mcu (
             .INIT_BYTE0 (`RAM_BYTE0),
             .INIT_BYTE1 (`RAM_BYTE1),
             .INIT_BYTE2 (`RAM_BYTE2),
-            .INIT_BYTE3 (`RAM_BYTE3)) i_ram ( .clk_i   ( clk ),
+            .INIT_BYTE3 (`RAM_BYTE3)) i_ram ( .rclk_i   ( clk_x2 ),
+                                             .wclk_i   ( clk ),
                                              .addr_i  ( ram_addr_word[9:0] ), 
                                              .din_i   ( ram_data_from_core ),
                                              .we_i    ( ram_we ), 
@@ -127,12 +129,16 @@ module mcu (
                                     
 `ifdef SYNTH_ICE40
 
+   wire rst_nn;
+
    wire clk_16M;
    reg [13:0] cnter;
    reg [1:0] dly_rst;
-   reg clk_1k;
 
-   assign clk = clk_1k;
+   assign clk     = cnter[13];
+   assign clk_x2  = cnter[12];
+
+   wire rst_nn = ~rst_in;
 
    SB_PLL40_PAD #(   .FEEDBACK_PATH ("SIMPLE"),
                      .DIVR          (4'b0100),	   // DIVR =  4
@@ -142,38 +148,49 @@ module mcu (
                   ) i_SB_PLL40_PAD (   
                      .PACKAGEPIN    (clk_i),
                      .PLLOUTGLOBAL  (clk_16M),
-                     .RESETB        (rst_in),
+                     .RESETB        (rst_nn),
                      .BYPASS        (1'b0),
                      .LOCK          (locked)
                   );
 
-   always @(posedge clk_16M or negedge rst_in) begin
-      if (~rst_in) begin
-         dly_rst  <= 'b0;
+
+   //assign locked = 'b1;
+   //assign clk_16M = clk_i;
+
+   always @(posedge clk_16M or negedge rst_nn) begin
+      if (~rst_nn) begin
          cnter    <= 'b0;
-         clk_1k   <= 'b0;
       end else begin
          cnter <= cnter + 'b1;
-
-         if (cnter == 'd8000) begin
-            clk_1k <= 'b1;
-         end
-         if (cnter == 'd16000) begin
-            clk_1k <= 'b0;
-            cnter <= 'b0;
-            if (dly_rst != 2'b11) begin
-               dly_rst <= dly_rst + 'b1;
-            end
-         end
-
       end
    end
 
-   assign rst_n = locked & rst_in & (&dly_rst);
+   always @(posedge cnter[13] or negedge rst_nn) begin
+      if (~rst_nn) begin
+         dly_rst  <= 'b0;
+      end else begin
+         if (dly_rst != 2'b11) begin
+            dly_rst <= dly_rst + 'b1;
+         end
+      end
+   end
+
+   assign rst_n = locked & rst_nn & (&dly_rst);
 
 `else
    assign rst_n   = rst_in;
-   assign clk     = clk_i;
+   assign clk_x2  = clk_i;
+   assign clk     = cnter[1];
+
+   reg [1:0] cnter;
+
+   always @(posedge clk_i or negedge rst_in) begin
+      if (~rst_in) begin
+         cnter    <= 'b0;
+      end else begin
+         cnter    <= cnter+'b1;
+      end
+   end
 `endif
 
 
