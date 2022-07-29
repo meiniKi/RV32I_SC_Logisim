@@ -64,7 +64,7 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="128000.0"/>
+    <a name="simulationFrequency" val="1.0"/>
     <comp lib="0" loc="(1010,320)" name="Splitter">
       <a name="appear" val="center"/>
       <a name="facing" val="north"/>
@@ -93,8 +93,8 @@
     <comp lib="0" loc="(250,270)" name="Splitter">
       <a name="appear" val="center"/>
       <a name="bit1" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
       <a name="bit12" val="none"/>
       <a name="bit13" val="none"/>
       <a name="bit14" val="none"/>
@@ -202,8 +202,8 @@
     <comp lib="0" loc="(820,40)" name="Splitter">
       <a name="appear" val="center"/>
       <a name="bit1" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
       <a name="bit12" val="none"/>
       <a name="bit13" val="none"/>
       <a name="bit14" val="none"/>
@@ -249,33 +249,25 @@
       <a name="width" val="32"/>
     </comp>
     <comp lib="4" loc="(110,310)" name="ROM">
-      <a name="addrWidth" val="12"/>
+      <a name="addrWidth" val="10"/>
       <a name="appearance" val="classic"/>
-      <a name="contents">addr/data: 12 32
-13 3c000113 3c000ef ff0007b7 a7a023 8067 ff0007b7 7a503
-8067 54783 78c63 ff000737 f72223 154783 150513 fe079ae3
-8067 fc010113 3312623 3412423 aaaab9b7 55555a37 3512223 3612023
-1712e23 1812c23 1912a23 1a12823 1b12623 2112e23 2812c23 2912a23
-3212823 555a0a13 aaa98993 1ac00513 f95ff0ef 1e000513 f8dff0ef 21400513
-f85ff0ef 24800513 f7dff0ef 27c00513 f75ff0ef 800413 a0513 f51ff0ef
-12*13 98513 f19ff0ef 12*13 fff40413 ff47413 f80414e3 400913
-100413 1f00493 fff48493 40513 ff4f493 ec1ff0ef 141413 fe0496e3
-1f00493 fff48493 40513 ff4f493 ea5ff0ef 145413 fe0496e3 fff90913
-fc0912e3 513 e8dff0ef 29800513 e9dff0ef 8000793 13 fff78793
-ff7f793 fe079ae3 2a400513 e81ff0ef ee5ff06f 5f5f5f20 20205f5f 5f202020
-20205f20 20202020 5f5f2020 205f5f5f 2020205f 20202020 20202020 5f5f2020
-205f5f5f a 7c20207c 5f7c2020 207c5f5f 5f7c207c 20205f5f 5f207c20
-7c20205f 5f5f7c5f 5f5f205f 5f5f205f 20207c5f 7c20207c a 2020207c
-207c2020 207c5f2d 207c207c 207c202e 20207c20 7c2d2020 205f7c20 20207c2d
-5f5f7c5f 20207c5f 7c20207c a 7c5f5f7c 5f7c5f5f 5f7c5f5f 5f7c5f7c
-207c5f5f 5f5f7c20 7c5f5f7c 5f5f7c5f 5f5f7c5f 20207c5f 5f5c2020 202f5f5f
-a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
-44200a0a a656e6f 0 6*a0a0a0a
+      <a name="contents">addr/data: 10 32
+13 10000137 12810113 3c000ef ff0007b7 a7a023 8067 ff0007b7
+7a503 8067 54783 78c63 ff000737 f72223 154783 150513
+fe079ae3 8067 55555537 111117b7 fd010113 55550513 11178793 3212023
+1312e23 1412c23 2112623 2812423 2912223 1512a23 a12423 f12623
+10000a37 100009b7 800913 493 80006f ff842503 f79ff0ef 13
+148493 14f413 1010793 241413 878433 ff842503 ff4f493 f55ff0ef
+13 fd2498e3 400a93 100413 1f00493 fff48493 40513 ff4f493
+f31ff0ef 141413 fe0496e3 1f00493 fff48493 40513 ff4f493 f15ff0ef
+145413 fe0496e3 fffa8a93 fc0a92e3 513 efdff0ef a0513 f0dff0ef
+8000793 13 fff78793 ff7f793 fe079ae3 c98513 ef1ff0ef 812503
+f4dff06f
 </a>
       <a name="dataWidth" val="32"/>
     </comp>
     <comp lib="4" loc="(860,30)" name="RAM">
-      <a name="addrWidth" val="12"/>
+      <a name="addrWidth" val="10"/>
       <a name="appearance" val="classic"/>
       <a name="asyncread" val="true"/>
       <a name="byteenables" val="byteEnables"/>
@@ -2553,7 +2545,7 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <text dominant-baseline="central" font-family="SansSerif" font-size="10" text-anchor="middle" x="320" y="61">rs2</text>
       <text dominant-baseline="central" font-family="SansSerif" font-size="10" text-anchor="middle" x="149" y="119">ar_i</text>
       <circ-anchor facing="east" height="6" width="6" x="127" y="77"/>
-      <circ-port height="10" pin="1170,280" width="10" x="135" y="45"/>
+      <circ-port height="10" pin="1170,260" width="10" x="135" y="45"/>
       <circ-port height="10" pin="1170,320" width="10" x="145" y="45"/>
       <circ-port height="10" pin="1170,360" width="10" x="155" y="45"/>
       <circ-port height="10" pin="1170,400" width="10" x="165" y="45"/>
@@ -2577,7 +2569,7 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <circ-port height="8" pin="220,640" width="8" x="126" y="116"/>
       <circ-port height="8" pin="220,670" width="8" x="126" y="96"/>
     </appear>
-    <comp lib="0" loc="(1170,280)" name="Pin">
+    <comp lib="0" loc="(1170,260)" name="Pin">
       <a name="appearance" val="classic"/>
       <a name="facing" val="west"/>
       <a name="label" val="op_add"/>
@@ -2721,9 +2713,6 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <a name="fanout" val="3"/>
       <a name="incoming" val="3"/>
     </comp>
-    <comp lib="1" loc="(1000,280)" name="AND Gate">
-      <a name="size" val="30"/>
-    </comp>
     <comp lib="1" loc="(1000,320)" name="AND Gate">
       <a name="size" val="30"/>
     </comp>
@@ -2767,6 +2756,13 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <a name="size" val="30"/>
     </comp>
     <comp lib="1" loc="(1000,880)" name="AND Gate">
+      <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(1100,270)" name="OR Gate">
+      <a name="negate0" val="true"/>
+      <a name="size" val="30"/>
+    </comp>
+    <comp lib="1" loc="(1150,260)" name="AND Gate">
       <a name="size" val="30"/>
     </comp>
     <comp lib="1" loc="(350,650)" name="OR Gate">
@@ -2837,19 +2833,10 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <a name="negate2" val="true"/>
       <a name="size" val="30"/>
     </comp>
-    <comp lib="1" loc="(900,250)" name="AND Gate">
-      <a name="facing" val="south"/>
-      <a name="negate1" val="true"/>
-      <a name="size" val="30"/>
-    </comp>
-    <comp lib="1" loc="(940,270)" name="OR Gate">
-      <a name="size" val="30"/>
-    </comp>
     <comp lib="1" loc="(940,330)" name="AND Gate">
       <a name="negate0" val="true"/>
       <a name="size" val="30"/>
     </comp>
-    <wire from="(1000,280)" to="(1170,280)"/>
     <wire from="(1000,320)" to="(1170,320)"/>
     <wire from="(1000,360)" to="(1170,360)"/>
     <wire from="(1000,400)" to="(1170,400)"/>
@@ -2865,6 +2852,12 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(1000,800)" to="(1170,800)"/>
     <wire from="(1000,840)" to="(1170,840)"/>
     <wire from="(1000,880)" to="(1170,880)"/>
+    <wire from="(1040,170)" to="(1040,260)"/>
+    <wire from="(1040,260)" to="(1060,260)"/>
+    <wire from="(1100,160)" to="(1100,250)"/>
+    <wire from="(1100,250)" to="(1120,250)"/>
+    <wire from="(1100,270)" to="(1120,270)"/>
+    <wire from="(1150,260)" to="(1170,260)"/>
     <wire from="(210,140)" to="(270,140)"/>
     <wire from="(210,890)" to="(950,890)"/>
     <wire from="(210,920)" to="(1170,920)"/>
@@ -2959,30 +2952,24 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(810,710)" to="(970,710)"/>
     <wire from="(820,50)" to="(820,110)"/>
     <wire from="(820,50)" to="(890,50)"/>
+    <wire from="(850,170)" to="(1040,170)"/>
     <wire from="(850,170)" to="(850,220)"/>
-    <wire from="(850,170)" to="(910,170)"/>
     <wire from="(860,250)" to="(860,340)"/>
     <wire from="(860,340)" to="(910,340)"/>
     <wire from="(870,200)" to="(870,220)"/>
     <wire from="(870,200)" to="(880,200)"/>
     <wire from="(870,70)" to="(870,100)"/>
-    <wire from="(880,140)" to="(880,200)"/>
+    <wire from="(880,140)" to="(880,160)"/>
+    <wire from="(880,160)" to="(1100,160)"/>
+    <wire from="(880,160)" to="(880,200)"/>
     <wire from="(880,200)" to="(880,670)"/>
-    <wire from="(880,200)" to="(890,200)"/>
     <wire from="(880,60)" to="(880,100)"/>
     <wire from="(880,670)" to="(970,670)"/>
-    <wire from="(890,200)" to="(890,220)"/>
+    <wire from="(890,280)" to="(1070,280)"/>
     <wire from="(890,280)" to="(890,320)"/>
-    <wire from="(890,280)" to="(910,280)"/>
     <wire from="(890,320)" to="(900,320)"/>
     <wire from="(890,50)" to="(890,100)"/>
-    <wire from="(900,250)" to="(900,260)"/>
-    <wire from="(900,260)" to="(910,260)"/>
-    <wire from="(910,170)" to="(910,210)"/>
-    <wire from="(940,270)" to="(970,270)"/>
     <wire from="(940,330)" to="(970,330)"/>
-    <wire from="(950,290)" to="(950,310)"/>
-    <wire from="(950,290)" to="(970,290)"/>
     <wire from="(950,310)" to="(950,370)"/>
     <wire from="(950,310)" to="(970,310)"/>
     <wire from="(950,370)" to="(950,410)"/>
@@ -3061,6 +3048,11 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <a name="label" val="instr_addr"/>
       <a name="output" val="true"/>
       <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(1230,480)" name="Probe">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(1350,830)" name="Pin">
       <a name="appearance" val="classic"/>
@@ -3141,15 +3133,15 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <a name="value" val="0x4"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(470,640)" name="Probe">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
-      <a name="radix" val="10signed"/>
-    </comp>
     <comp lib="0" loc="(480,480)" name="Probe">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
       <a name="radix" val="10unsigned"/>
+    </comp>
+    <comp lib="0" loc="(480,640)" name="Probe">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(520,510)" name="Probe">
       <a name="appearance" val="NewPins"/>
@@ -3169,7 +3161,12 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
       <a name="facing" val="north"/>
       <a name="label" val="rst_n"/>
     </comp>
-    <comp lib="0" loc="(790,460)" name="Probe">
+    <comp lib="0" loc="(670,390)" name="Probe">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(780,390)" name="Probe">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
       <a name="radix" val="16"/>
@@ -3181,6 +3178,11 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     </comp>
     <comp lib="0" loc="(790,870)" name="Tunnel">
       <a name="label" val="ld"/>
+    </comp>
+    <comp lib="0" loc="(810,460)" name="Probe">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(850,420)" name="Splitter">
       <a name="appear" val="right"/>
@@ -3378,10 +3380,13 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(1060,620)" to="(1060,740)"/>
     <wire from="(1070,450)" to="(1090,450)"/>
     <wire from="(1070,620)" to="(1070,740)"/>
-    <wire from="(1080,570)" to="(1150,570)"/>
+    <wire from="(1080,570)" to="(1120,570)"/>
     <wire from="(1110,720)" to="(1110,810)"/>
     <wire from="(1110,810)" to="(1190,810)"/>
     <wire from="(1120,450)" to="(1130,450)"/>
+    <wire from="(1120,530)" to="(1120,570)"/>
+    <wire from="(1120,530)" to="(1230,530)"/>
+    <wire from="(1120,570)" to="(1150,570)"/>
     <wire from="(1130,450)" to="(1130,470)"/>
     <wire from="(1140,480)" to="(1170,480)"/>
     <wire from="(1140,500)" to="(1150,500)"/>
@@ -3390,6 +3395,7 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(1150,770)" to="(1190,770)"/>
     <wire from="(1170,480)" to="(1170,790)"/>
     <wire from="(1170,790)" to="(1190,790)"/>
+    <wire from="(1230,480)" to="(1230,530)"/>
     <wire from="(1310,770)" to="(1330,770)"/>
     <wire from="(1310,790)" to="(1340,790)"/>
     <wire from="(1310,810)" to="(1350,810)"/>
@@ -3433,10 +3439,12 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(450,700)" to="(450,730)"/>
     <wire from="(450,700)" to="(830,700)"/>
     <wire from="(450,730)" to="(460,730)"/>
-    <wire from="(470,600)" to="(470,640)"/>
+    <wire from="(470,600)" to="(470,630)"/>
     <wire from="(470,600)" to="(780,600)"/>
+    <wire from="(470,630)" to="(480,630)"/>
     <wire from="(480,480)" to="(480,530)"/>
     <wire from="(480,530)" to="(600,530)"/>
+    <wire from="(480,630)" to="(480,640)"/>
     <wire from="(490,740)" to="(540,740)"/>
     <wire from="(500,360)" to="(500,820)"/>
     <wire from="(500,820)" to="(880,820)"/>
@@ -3458,7 +3466,7 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(590,450)" to="(630,450)"/>
     <wire from="(590,740)" to="(670,740)"/>
     <wire from="(620,480)" to="(620,520)"/>
-    <wire from="(620,480)" to="(690,480)"/>
+    <wire from="(620,480)" to="(670,480)"/>
     <wire from="(620,590)" to="(620,620)"/>
     <wire from="(620,630)" to="(620,640)"/>
     <wire from="(620,630)" to="(640,630)"/>
@@ -3469,6 +3477,8 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(660,450)" to="(710,450)"/>
     <wire from="(660,650)" to="(660,870)"/>
     <wire from="(660,870)" to="(720,870)"/>
+    <wire from="(670,390)" to="(670,480)"/>
+    <wire from="(670,480)" to="(690,480)"/>
     <wire from="(670,650)" to="(670,740)"/>
     <wire from="(670,740)" to="(760,740)"/>
     <wire from="(680,590)" to="(680,620)"/>
@@ -3480,10 +3490,10 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(700,790)" to="(880,790)"/>
     <wire from="(710,280)" to="(740,280)"/>
     <wire from="(710,450)" to="(710,460)"/>
-    <wire from="(710,560)" to="(830,560)"/>
-    <wire from="(710,580)" to="(790,580)"/>
+    <wire from="(710,560)" to="(810,560)"/>
+    <wire from="(710,580)" to="(750,580)"/>
     <wire from="(720,470)" to="(740,470)"/>
-    <wire from="(720,490)" to="(790,490)"/>
+    <wire from="(720,490)" to="(940,490)"/>
     <wire from="(720,660)" to="(720,870)"/>
     <wire from="(720,870)" to="(790,870)"/>
     <wire from="(730,660)" to="(730,840)"/>
@@ -3494,16 +3504,18 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(740,620)" to="(810,620)"/>
     <wire from="(740,660)" to="(740,890)"/>
     <wire from="(740,890)" to="(770,890)"/>
+    <wire from="(750,440)" to="(750,580)"/>
+    <wire from="(750,440)" to="(780,440)"/>
+    <wire from="(750,580)" to="(790,580)"/>
     <wire from="(750,660)" to="(750,810)"/>
     <wire from="(750,810)" to="(880,810)"/>
     <wire from="(760,660)" to="(760,740)"/>
     <wire from="(760,740)" to="(870,740)"/>
     <wire from="(770,670)" to="(770,890)"/>
     <wire from="(770,890)" to="(1190,890)"/>
+    <wire from="(780,390)" to="(780,440)"/>
     <wire from="(780,600)" to="(780,660)"/>
     <wire from="(780,600)" to="(800,600)"/>
-    <wire from="(790,460)" to="(790,490)"/>
-    <wire from="(790,490)" to="(940,490)"/>
     <wire from="(790,540)" to="(830,540)"/>
     <wire from="(790,580)" to="(790,650)"/>
     <wire from="(790,580)" to="(800,580)"/>
@@ -3511,6 +3523,8 @@ a 4c200a0a 6d207465 6f642065 6d6f7320 69687465 2e2e676e a2e
     <wire from="(790,690)" to="(790,720)"/>
     <wire from="(790,720)" to="(1110,720)"/>
     <wire from="(800,650)" to="(800,660)"/>
+    <wire from="(810,460)" to="(810,560)"/>
+    <wire from="(810,560)" to="(830,560)"/>
     <wire from="(810,610)" to="(810,620)"/>
     <wire from="(830,590)" to="(870,590)"/>
     <wire from="(830,690)" to="(830,700)"/>

@@ -1,0 +1,66 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Wed Jul 27 15:00:02 2022
+[*]
+[dumpfile] "/home/user/Documents/repos/RV32I_SC_Logisim/hw/verilog/out/tb.vcd"
+[dumpfile_mtime] "Wed Jul 27 14:59:18 2022"
+[dumpfile_size] 9116001
+[savefile] "/home/user/Documents/repos/RV32I_SC_Logisim/hw/verilog/tb/preset.gtkw"
+[timestart] 0
+[size] 1920 1043
+[pos] -1 -1
+*-15.000000 41400 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.i_mcu.
+[treeopen] tb.i_mcu.i_rv32_i.
+[treeopen] tb.i_mcu.i_rv32_i.i_rv32i_regfile.
+[sst_width] 320
+[signals_width] 281
+[sst_expanded] 1
+[sst_vpaned_height] 298
+@28
+tb.i_mcu.i_rom.clk_i
+tb.i_mcu.rst_n
+@22
+tb.i_mcu.i_rv32_i.pc[31:0]
+@28
+tb.i_mcu.rst_in
+@22
+tb.i_mcu.i_rom.dout_o[31:0]
+tb.i_mcu.i_rom.addr_i[11:0]
+tb.i_mcu.i_rv32_i.pc[31:0]
+tb.i_mcu.i_rv32_i.pc_next[31:0]
+@200
+-
+@22
+tb.i_mcu.i_d_ledbar.drd_o[31:0]
+@200
+------ REGFILE -----
+@24
+tb.i_mcu.i_rv32_i.i_rv32i_regfile.rs1_i[4:0]
+tb.i_mcu.i_rv32_i.i_rv32i_regfile.rs2_i[4:0]
+tb.i_mcu.i_rv32_i.i_rv32i_regfile.rd_i[4:0]
+@22
+tb.i_mcu.i_rv32_i.i_rv32i_regfile.rsa_o[31:0]
+tb.i_mcu.i_rv32_i.i_rv32i_regfile.rsb_o[31:0]
+@28
+tb.i_mcu.i_rv32_i.i_rv32i_regfile.we_i
+@200
+------ REGBANK 0 -----
+@22
+tb.i_mcu.i_rv32_i.i_rv32i_regfile.i_rv32i_regbank_lower.din_i[31:0]
+@200
+------ INDEC -----
+@22
+tb.i_mcu.i_rv32_i.i_rv32i_indec.instr_i[31:0]
+tb.i_mcu.i_rv32_i.i_rv32i_indec.imm_o[31:0]
+@200
+------ ALUDEC -----
+@28
+tb.i_mcu.i_rv32_i.i_rv32i_aludec.op_rs2_imm_o
+@200
+------ ALU -----
+@22
+tb.i_mcu.i_rv32_i.i_rv32i_alu.dout_o[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

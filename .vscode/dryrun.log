@@ -1,0 +1,9 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/user/Documents/repos/RV32I_SC_Logisim'
+echo ""
+echo "************************************"
+echo "******      BUILDING APP     *******"
+echo "************************************"
+make --no-print-directory -C sw/apps/00_demo
+make: Leaving directory '/home/user/Documents/repos/RV32I_SC_Logisim'
+ 
