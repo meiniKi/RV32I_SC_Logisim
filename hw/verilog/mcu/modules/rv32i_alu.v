@@ -1,5 +1,19 @@
+//
+//   ______     ___________  ___     ____   ____     _                _     _
+//  |  _ \ \   / /___ /___ \|_ _|   / ___| / ___|   | |    ___   __ _(_)___(_)
+//  | |_) \ \ / /  |_ \ __) || |    \___ \| |       | |   / _ \ / _` | / __| | '_ ` _ \
+//  |  _ < \ V /  ___) / __/ | |     ___) | |___    | |__| (_) | (_| | \__ \ | | | | | |
+//  |_| \_\ \_/  |____/_____|___|___|____/ \____|___|_____\___/ \__, |_|___/_|_| |_| |_|
+//                             |_____|         |_____|          |___/
+//
+// Project  https://github.com/meiniKi/RV32I_SC_Logisim/           
+// Author   Meinhard Kissich
+//
+// Usage    Arithmetic logic unit  
+//
+//
 
- module rv32i_alu( 
+module rv32i_alu( 
    input  wire [31:0]   rsa_i,
    input  wire [31:0]   rsb_imm_i,
    input  wire          op_add_i,

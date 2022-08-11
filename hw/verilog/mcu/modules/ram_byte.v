@@ -1,3 +1,18 @@
+//
+//   ______     ___________  ___     ____   ____     _                _     _
+//  |  _ \ \   / /___ /___ \|_ _|   / ___| / ___|   | |    ___   __ _(_)___(_)
+//  | |_) \ \ / /  |_ \ __) || |    \___ \| |       | |   / _ \ / _` | / __| | '_ ` _ \
+//  |  _ < \ V /  ___) / __/ | |     ___) | |___    | |__| (_) | (_| | \__ \ | | | | | |
+//  |_| \_\ \_/  |____/_____|___|___|____/ \____|___|_____\___/ \__, |_|___/_|_| |_| |_|
+//                             |_____|         |_____|          |___/
+//
+// Project  https://github.com/meiniKi/RV32I_SC_Logisim/           
+// Author   Meinhard Kissich
+//
+// Usage    RAM 1-byte width
+//          Shall support being identified as BRAM by Lattic flow
+//
+//
 
 module ram_byte #( parameter ADDR_WIDTH = 12,
                    parameter INIT_FILE = "") (
