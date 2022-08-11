@@ -23,10 +23,10 @@ int main(void)
         for(uint8_t i = 0; i < 8; i++)
         {
             ledbar_write(pattern[i%2]);
-            for(uint8_t j = 0; j < 12; j++) __asm__ volatile("nop");
+            for(uint8_t j = 0; j < 100; j++) __asm__ volatile("nop");
 
             ledbar_write(pattern[(i+1)%2]);
-            for(uint8_t j = 0; j < 12; j++) __asm__ volatile("nop");
+            for(uint8_t j = 0; j < 100; j++) __asm__ volatile("nop");
         }
 
         uint32_t val = 1;
@@ -36,11 +36,13 @@ int main(void)
             {
                 ledbar_write(val);
                 val <<= 1;
+                for(uint8_t j = 0; j < 2; j++) __asm__ volatile("nop");
             }
             for(uint8_t i = 0; i < 31; i++)
             {
                 ledbar_write(val);
                 val >>= 1;
+                for(uint8_t j = 0; j < 2; j++) __asm__ volatile("nop");
             }
         }
 

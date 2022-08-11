@@ -64,7 +64,7 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="1.0"/>
+    <a name="simulationFrequency" val="2000.0"/>
     <comp lib="0" loc="(1010,320)" name="Splitter">
       <a name="appear" val="center"/>
       <a name="facing" val="north"/>
@@ -256,13 +256,13 @@
 7a503 8067 54783 78c63 ff000737 f72223 154783 150513
 fe079ae3 8067 55555537 111117b7 fd010113 55550513 11178793 3212023
 1312e23 1412c23 2112623 2812423 2912223 1512a23 a12423 f12623
-10000a37 100009b7 800913 493 80006f ff842503 f79ff0ef 13
-148493 14f413 1010793 241413 878433 ff842503 ff4f493 f55ff0ef
-13 fd2498e3 400a93 100413 1f00493 fff48493 40513 ff4f493
-f31ff0ef 141413 fe0496e3 1f00493 fff48493 40513 ff4f493 f15ff0ef
-145413 fe0496e3 fffa8a93 fc0a92e3 513 efdff0ef a0513 f0dff0ef
-8000793 13 fff78793 ff7f793 fe079ae3 c98513 ef1ff0ef 812503
-f4dff06f
+10000a37 100009b7 800913 493 80006f ff842503 f79ff0ef 12*13
+148493 14f413 1010793 241413 878433 ff842503 ff4f493 f29ff0ef
+12*13 f7249ce3 400a93 100413 1f00493 fff48493 40513 ff4f493
+ed9ff0ef 141413 fe0496e3 1f00493 fff48493 40513 ff4f493 ebdff0ef
+145413 fe0496e3 fffa8a93 fc0a92e3 513 ea5ff0ef a0513 eb5ff0ef
+4000793 13 fff78793 ff7f793 fe079ae3 c98513 e99ff0ef 812503
+ef5ff06f
 </a>
       <a name="dataWidth" val="32"/>
     </comp>
