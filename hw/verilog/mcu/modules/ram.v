@@ -1,4 +1,18 @@
-
+//
+//   ______     ___________  ___     ____   ____     _                _     _
+//  |  _ \ \   / /___ /___ \|_ _|   / ___| / ___|   | |    ___   __ _(_)___(_)
+//  | |_) \ \ / /  |_ \ __) || |    \___ \| |       | |   / _ \ / _` | / __| | '_ ` _ \
+//  |  _ < \ V /  ___) / __/ | |     ___) | |___    | |__| (_) | (_| | \__ \ | | | | | |
+//  |_| \_\ \_/  |____/_____|___|___|____/ \____|___|_____\___/ \__, |_|___/_|_| |_| |_|
+//                             |_____|         |_____|          |___/
+//
+// Project  https://github.com/meiniKi/RV32I_SC_Logisim/           
+// Author   Meinhard Kissich
+//
+// Usage    RAM module
+//          currently: hard-coded 4-byte width (paramter changes are ignored!)
+//
+//
 
 
 module ram #( parameter DATA_WIDTH = 32,

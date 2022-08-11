@@ -6,7 +6,7 @@ RV32I_Logi_SC is a minimalistic single-cycle RISC-V platform for demonstrational
 
 ![Top level MCU architecture](/doc/top.png)
 
-## Getting Started
+## Getting Started (Logisim)
 
 Clone the repository and initialize the environment. The toolchain path may be modified in `initEnv.sh`.
 
@@ -23,6 +23,26 @@ make clean && make
 
 Open `r32i_sc.circ` in Logisim Evolution. Right-click the ROM instance and load the image file `sw/apps/00_demo/bin/image` in _little-endian_ format. Repeat for the RAM. Afterward, the clock can be started by pressing `CTRL+K.` The clock speed may be increased.
 
+
+## Getting Started (Simulation)
+
+To simulate the target application based on the Verilog implementation run the Makefile target listed below.
+
+```
+make sim
+```
+
+## Getting Started (iCE40)
+
+Synthesis, implementation, and transfer to the configuration memory are entirely handled by Makefiles as well. The Raspberry Pi connected to the icoboard must be available via the SSH `rpi` without authentication (or public key authentication).
+
+Use the following Makefile targets:
+
+```
+make app
+make ice40
+make prog_ice40
+```
 
 ## Core Architecture
 
